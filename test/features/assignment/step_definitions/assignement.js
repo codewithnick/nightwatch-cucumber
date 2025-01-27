@@ -14,7 +14,7 @@ Then(/^the title of ultimateqa is "([^"]*)"$/, async function(title) {
 When(/^I click on "([^"]*)"$/, async function(text) {
     //find the element by the text
     return browser.useXpath()
-    .click(`//a[contains(text(), "${text}")]`)
+    .click(Constant.anchorText(text))
     .useCss(); 
 });
 
