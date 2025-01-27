@@ -23,8 +23,12 @@ Scenario: Fetch JS/console error on browser developer tools
     And I fetch JavaScript console errors
     Then The logs should be empty
 
-Scenario: click on Education dropdown and select /click Selenium Resources.
+Scenario Outline: click on Education dropdown and select /click Selenium Resources.
     When I open the Automation Practice page
-    And I click on "Education"
-    And I click on "Selenium Resources"
-    Then I am redirected to "https://ultimateqa.com/best-selenium-webdriver-resources/"
+    And I click on "<menu_item>"
+    And I click on "<sub_menu_item>"
+    Then I am redirected to "<expected_url>"
+
+    Examples:
+      | menu_item  | sub_menu_item      | expected_url                                                    |
+      | Education  | Selenium Resources | https://ultimateqa.com/best-selenium-webdriver-resources/       |
