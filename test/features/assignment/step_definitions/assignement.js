@@ -15,8 +15,9 @@ Then(/^the title of the Internet Page is ([^"]*)$/, async function(title) {
 
 When(/^I fetch JavaScript console errors$/, async function () {
     const logs = await browser.pause(5000).getLog('browser');
-    console.log("console logs: ",logs);
-    return this.logs = logs;
+    const log = logs.map((x)=>x.message);
+    console.log("console logs: ",log);
+    return this.logs = log;
 });
 
 
